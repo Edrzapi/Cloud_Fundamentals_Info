@@ -6,13 +6,10 @@ on:
   push: # Trigger when pushed
     branches:
       - main # on main push
-  pull-request:
-  
-  workflow-dispatch:
-
+  workflow_dispatch:
   #This is the main jobs section - each job will run in its' own virtual env.
-  jobs:
-    hello_world: #Name of the job
+jobs:
+  say_hello: #Name of the job
       runs-on: ubuntu-latest #The OS of the VE
       steps: #Our job sequence
         - name: Checkout code
@@ -21,4 +18,3 @@ on:
         - name: Say Hello
           run: echo "Hello World!" #Running a simple shell command.
   
-
