@@ -1,0 +1,24 @@
+# We'll need a name to reference should we call this WF in another WF, that could either be an action, etc. 
+name: Hello World Workflow
+
+#This section defines when the WF is triggered.
+on:
+  push: # Trigger when pushed
+    branches:
+      - main # on main push
+  pull-request:
+  
+  workflow-dispatch:
+
+  #This is the main jobs section - each job will run in its' own virtual env.
+  jobs:
+    hello_world: #Name of the job
+      runs-on: ubuntu-latest #The OS of the VE
+      steps: #Our job sequence
+        - name: Checkout code
+          uses: actions/checkout@V3 #Checkout the repos code 
+        
+        - name: Say Hello
+          run: echo "Hello World!" #Running a simple shell command.
+  
+
